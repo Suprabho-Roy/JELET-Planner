@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exam Preparation Planner</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            background-color: #fff;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        td {
+            cursor: pointer;
+            font-size: 1.2em;
+        }
+        td.checked::before {
+            content: "✔";
+            color: green;
+        }
+        /* Responsive Table */
+        @media (max-width: 768px) {
+            table, th, td {
+                font-size: 0.9em;
+                padding: 8px;
+            }
+        }
+        @media (max-width: 480px) {
+            table, th, td {
+                font-size: 0.8em;
+                padding: 6px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Mathematics</h2>
+    <table id="mathTable">
+        <thead>
+            <tr>
+                <th>Chapters</th>
+                <th>JELET</th>
+                <th>WBJEE</th>
+                <th>JEE MAIN</th>
+                <th>Others</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>Matrix</td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>Determinant</td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>Vector algebra</td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>Complex number</td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>Probability</td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>Differential calculus</td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>Applications of derivative</td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>Partial differentiation</td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>Integral calculus</td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>Ordinary differential equation</td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>Coordinate geometry</td><td></td><td></td><td></td><td></td></tr>
+        </tbody>
+    </table>
+
+    <h2>Physics</h2>
+    <table id="physicsTable">
+        <thead>
+            <tr>
+                <th>Chapters</th>
+                <th>JELET</th>
+                <th>WBJEE</th>
+                <th>JEE MAIN</th>
+                <th>Others</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>Unit dimension</td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>Motion in 1D</td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>Motion in 2D</td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>Vector</td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>Heat</td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>KTG</td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>Thermodynamics</td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>Optics</td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>Fluid mechanics</td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>Photoelectricity</td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>Laws of motion</td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>Work power energy</td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>Elasticity</td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>Surface tension</td><td></td><td></td><td></td><td></td></tr>
+        </tbody>
+    </table>
+
+    <h2>Chemistry</h2>
+    <table id="chemistryTable">
+        <thead>
+            <tr>
+                <th>Chapters</th>
+                <th>JELET</th>
+                <th>WBJEE</th>
+                <th>JEE MAIN</th>
+                <th>Others</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>Mole concept</td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>Periodic table</td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>Atomic structure</td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>Chemical bonding</td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>Ionic equilibrium</td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>Chemical equilibrium</td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>Oxidation reduction</td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>Electrochemistry</td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>Metallurgy</td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>Water</td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>Organic chemistry</td><td></td><td></td><td></td><td></td></tr>
+        </tbody>
+    </table>
+
+    <script>
+        // Function to initialize and load saved data from localStorage
+        function loadState() {
+            document.querySelectorAll('td').forEach((td, index) => {
+                const savedState = localStorage.getItem('td-' + index);
+                if (savedState === 'checked') {
+                    td.classList.add('checked');
+                }
+            });
+        }
+
+        // Function to save the current state in localStorage
+        function saveState() {
+            document.querySelectorAll('td').forEach((td, index) => {
+                if (td.classList.contains('checked')) {
+                    localStorage.setItem('td-' + index, 'checked');
+                } else {
+                    localStorage.removeItem('td-' + index);
+                }
+            });
+        }
+
+        // Add click event listener to toggle checkmark and save state
+        document.querySelectorAll('td').forEach((td) => {
+            td.addEventListener('click', function () {
+                this.classList.toggle('checked');
+                saveState();
+            });
+        });
+
+        // Load saved state on page load
+        window.onload = loadState;
+    </script>
+
+</body>
+</html>
